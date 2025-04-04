@@ -1,0 +1,76 @@
+disease,variant,yield_term,similarity
+yellow_rust,yellow rust,yield,0.32953298
+yellow_rust,yellow rust,loss,0.23050183
+yellow_rust,yellow rust,reduction,0.16779868
+yellow_rust,yellow rust,damage,0.19129123
+yellow_rust,yellow rust,impact,0.15655176
+yellow_rust,stripe rust,yield,0.40300244
+yellow_rust,stripe rust,loss,0.27287373
+yellow_rust,stripe rust,reduction,0.17469412
+yellow_rust,stripe rust,damage,0.25085893
+yellow_rust,stripe rust,impact,0.15230541
+yellow_rust,puccinia striiformis,yield,0.23401241
+yellow_rust,puccinia striiformis,loss,0.27462766
+yellow_rust,puccinia striiformis,reduction,0.14907892
+yellow_rust,puccinia striiformis,damage,0.14055628
+yellow_rust,puccinia striiformis,impact,0.16443564
+brown_rust,brown rust,yield,0.2974722
+brown_rust,brown rust,loss,0.24102934
+brown_rust,brown rust,reduction,0.16171941
+brown_rust,brown rust,damage,0.16090502
+brown_rust,brown rust,impact,0.12994812
+brown_rust,leaf rust,yield,0.34178722
+brown_rust,leaf rust,loss,0.22054668
+brown_rust,leaf rust,reduction,0.1941394
+brown_rust,leaf rust,damage,0.20750347
+brown_rust,leaf rust,impact,0.16114044
+brown_rust,puccinia triticina,yield,0.24825083
+brown_rust,puccinia triticina,loss,0.24142613
+brown_rust,puccinia triticina,reduction,0.07644489
+brown_rust,puccinia triticina,damage,0.1389197
+brown_rust,puccinia triticina,impact,0.11386778
+brown_rust,puccinia recondita,yield,0.24533013
+brown_rust,puccinia recondita,loss,0.24855703
+brown_rust,puccinia recondita,reduction,0.13570221
+brown_rust,puccinia recondita,damage,0.13689119
+brown_rust,puccinia recondita,impact,0.19242491
+septoria,septoria,yield,0.22773585
+septoria,septoria,loss,0.13685168
+septoria,septoria,reduction,0.1339919
+septoria,septoria,damage,0.16313565
+septoria,septoria,impact,0.10554212
+septoria,septoria tritici,yield,0.26333737
+septoria,septoria tritici,loss,0.11888503
+septoria,septoria tritici,reduction,0.16443743
+septoria,septoria tritici,damage,0.16012287
+septoria,septoria tritici,impact,0.10516913
+septoria,zymoseptoria tritici,yield,0.26956996
+septoria,zymoseptoria tritici,loss,0.13199498
+septoria,zymoseptoria tritici,reduction,0.12396406
+septoria,zymoseptoria tritici,damage,0.11529649
+septoria,zymoseptoria tritici,impact,0.13182859
+septoria,mycosphaerella graminicola,yield,0.19124158
+septoria,mycosphaerella graminicola,loss,0.17364767
+septoria,mycosphaerella graminicola,reduction,0.22594991
+septoria,mycosphaerella graminicola,damage,0.19111428
+septoria,mycosphaerella graminicola,impact,0.12818156
+septoria,septoria blotch,yield,0.26691335
+septoria,septoria blotch,loss,0.13516879
+septoria,septoria blotch,reduction,0.15891814
+septoria,septoria blotch,damage,0.198163
+septoria,septoria blotch,impact,0.123618744
+mildew,powdery mildew,yield,0.1660984
+mildew,powdery mildew,loss,0.11472223
+mildew,powdery mildew,reduction,0.15828091
+mildew,powdery mildew,damage,0.097170785
+mildew,powdery mildew,impact,0.14213732
+mildew,blumeria graminis,yield,0.10647768
+mildew,blumeria graminis,loss,0.14479418
+mildew,blumeria graminis,reduction,0.1437913
+mildew,blumeria graminis,damage,0.0864389
+mildew,blumeria graminis,impact,0.070412934
+mildew,erysiphe graminis,yield,0.13730976
+mildew,erysiphe graminis,loss,0.1865093
+mildew,erysiphe graminis,reduction,0.15227686
+mildew,erysiphe graminis,damage,0.097954236
+mildew,erysiphe graminis,impact,0.104660966
