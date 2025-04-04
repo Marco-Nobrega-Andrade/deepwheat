@@ -1,1 +1,0 @@
-# MEIA_ISEP_TEAM7_2024_2025_Challenge_3
