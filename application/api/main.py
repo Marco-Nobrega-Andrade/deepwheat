@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from application.api.controllers.login_controller import router as login_router
 from application.api.controllers.register_controller import router as register_router
+from application.api.infrastructure.database_connection import database, create_all_tables, connect
 
 app = FastAPI()
 
@@ -18,3 +19,12 @@ app.add_middleware(
 
 app.include_router(login_router)
 app.include_router(register_router)
+
+@app.on_event("startup")
+async def startup():
+    create_all_tables()  # Call the standalone function to create tables
+    await connect()
+
+@app.on_event("shutdown")
+async def shutdown():
+    await database.disconnect()
