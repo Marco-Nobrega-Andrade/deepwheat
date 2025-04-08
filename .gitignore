@@ -15,4 +15,4 @@
 .conda
 
 # fastAPI
-__pycache__/
+__pycache__/extracted_corpus/combined_corpus.txt
