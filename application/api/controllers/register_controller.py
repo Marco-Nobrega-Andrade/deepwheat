@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 
 from application.api.models.register_request import RegisterRequest
 from application.api.services.register_service import register_user
