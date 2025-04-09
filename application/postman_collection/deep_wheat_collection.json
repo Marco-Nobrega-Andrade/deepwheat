@@ -1,0 +1,167 @@
+{
+  "info": {
+    "name": "User Configurations API",
+    "_postman_id": "12345678-abcd-efgh-ijkl-123456789abc",
+    "description": "FastAPI POC - User Registration, Login, Configurations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user@example.com\",\n  \"name\": \"Test User\",\n  \"password\": \"mysecurepassword\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["register"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"mysecurepassword\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["login"]
+        }
+      }
+    },
+    {
+      "name": "Create Configuration",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"area\": 10.5,\n  \"plantation_cost\": 1200,\n  \"expected_profit\": 3000,\n  \"expected_yield\": 250\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/user/configurations",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["user", "configurations"]
+        }
+      }
+    },
+    {
+      "name": "Get All Configurations",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/user/configurations",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["user", "configurations"]
+        }
+      }
+    },
+    {
+      "name": "Get Configuration by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/user/configurations/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["user", "configurations", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Configuration",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"area\": 12.0,\n  \"plantation_cost\": 1300,\n  \"expected_profit\": 3500,\n  \"expected_yield\": 275\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/user/configurations/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["user", "configurations", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Configuration",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/user/configurations/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["user", "configurations", "1"]
+        }
+      }
+    }
+  ]
+}

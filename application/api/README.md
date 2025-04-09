@@ -10,6 +10,13 @@ python -m venv .venv
 source .venv/bin/activate  # or .\.venv\Scripts\Activate.ps1 on Windows
 pip3 install -r requirements.txt
 ```
+4. Setup Postgres container with docker-compose:
+    - It need docker-compose or Docker Desktop installed
+```bash
+
+docker-compose up -d
+
+```
 
 ## Running the app
 After active the .venv run the following command in the **/application/api** folder:
