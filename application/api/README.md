@@ -5,9 +5,19 @@
 3. Install dependencies:
 
 ```bash
+
 python -m venv .venv
 source .venv/bin/activate  # or .\.venv\Scripts\Activate.ps1 on Windows
 pip3 install -r requirements.txt
+```
+
+## Running the app
+After active the .venv run the following command in the **/application/api** folder:
+
+``` bash
+
+uvicorn application.main:app --reload
+
 ```
 
 ### Postman collection
