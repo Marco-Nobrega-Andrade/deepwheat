@@ -6,5 +6,5 @@ from application.api.services.register_service import register_user
 router = APIRouter(tags=["Register"])
 
 @router.post("/register")
-async def request_requister(request: RegisterRequest):
+async def request_register(request: RegisterRequest):
     return await register_user(request)

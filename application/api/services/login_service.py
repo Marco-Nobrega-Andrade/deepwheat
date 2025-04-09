@@ -1,10 +1,13 @@
 from fastapi import HTTPException
-
 from application.api.models.login_request import LoginRequest
 from application.api.repository import user_repository
+from application.api.utils.security_utils import verify_password
+from application.api.utils.token_utils import create_access_token
 
-async def login_user(user: LoginRequest) -> str:
+async def login_user(user: LoginRequest) -> dict:
     found = await user_repository.get_user_by_email(user.email)
-    if not found or found["password"] != user.password:
-        raise HTTPException(status_code=401, detail="Invalid username or password")
-    return "User logged in"
+    if not found or not verify_password(user.password, found["password"]):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+
+    token = create_access_token(data={"sub": str(found["id"])})
+    return {"access_token": token, "token_type": "bearer"}
