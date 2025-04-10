@@ -23,7 +23,7 @@ After active the .venv run the following command in the **/application/api** fol
 
 ``` bash
 
-uvicorn application.main:app --reload
+uvicorn application.api.main:app --reload
 
 ```
 
