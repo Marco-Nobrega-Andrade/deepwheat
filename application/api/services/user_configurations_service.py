@@ -14,8 +14,8 @@ async def create_configuration(user_id: int, config: UserConfigurationsRequest) 
     )
 
 
-async def get_configuration_by_id(user_id: int, config_id: int) -> Optional[UserConfigurationsModel]:
-    return await user_configurations_repository.get_user_configuration_by_id(config_id, user_id)
+async def get_configuration_by_user_id(user_id: int) -> Optional[UserConfigurationsModel]:
+    return await user_configurations_repository.get_configuration_by_user_id(user_id)
 
 
 async def get_all_configurations(user_id: int) -> List[UserConfigurationsModel]:

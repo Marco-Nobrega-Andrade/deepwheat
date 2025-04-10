@@ -23,10 +23,9 @@ async def create_user_configuration(user_id: int, area: float, plantation_cost: 
     )
 
 
-async def get_user_configuration_by_id(config_id: int, user_id: int) -> Optional[UserConfigurationsModel]:
-    query = user_configurations.select().where(
-        (user_configurations.c.id == config_id) & (user_configurations.c.user_id == user_id)
-    )
+async def get_configuration_by_user_id(user_id: int) -> Optional[UserConfigurationsModel]:
+    query = user_configurations.select().where(user_configurations.c.user_id == user_id)
+
     row = await database.fetch_one(query)
     return UserConfigurationsModel(**row) if row else None
 
