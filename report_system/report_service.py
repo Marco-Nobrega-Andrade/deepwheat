@@ -41,15 +41,3 @@ def generate_report(image, area, plantation_cost, expected_profit, expected_yiel
     return generate_json_report(days, infected_areas, profit_loss,
                                  plantation_loss, yield_loss,
                                    classified_disease, disease_treatment)
-
-# Example usage
-if __name__ == "__main__":
-    # Example image and area
-    image = "path/to/image.jpg"
-    area = 10000  # in square meters
-    plantation_cost = 500000  # in euros
-    expected_profit = 200000  # in euros
-    expected_yield = 5000  # in tons
-
-    report = generate_report(image, area, plantation_cost, expected_profit, expected_yield)
-    print(json.dumps(report, indent=2))  # Pretty-print the report

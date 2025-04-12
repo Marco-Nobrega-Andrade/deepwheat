@@ -34,7 +34,7 @@ async def generate_report(image, user_id):
     if not configurations.expected_yield or not configurations.expected_profit or not configurations.plantation_cost or not configurations.area:
         raise HTTPException(status_code=401, detail="Incomplete user configurations")
     
-    classified_disease = classify_disease(image)
+    classified_disease = await classify_disease(image)
     if classified_disease == diseases.HEALTHY:
         return {
             "wheat_disease": diseases.HEALTHY
@@ -49,15 +49,3 @@ async def generate_report(image, user_id):
     return generate_json_report(days, infected_areas, profit_loss,
                                  plantation_loss, yield_loss,
                                    classified_disease, disease_treatment)
-
-# Example usage
-if __name__ == "__main__":
-    # Example image and area
-    image = "path/to/image.jpg"
-    area = 10000  # in square meters
-    plantation_cost = 500000  # in euros
-    expected_profit = 200000  # in euros
-    expected_yield = 5000  # in tons
-
-    report = generate_report(image, area, plantation_cost, expected_profit, expected_yield)
-    print(json.dumps(report, indent=2))  # Pretty-print the report

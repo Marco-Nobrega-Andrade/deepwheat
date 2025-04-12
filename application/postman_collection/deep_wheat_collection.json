@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "c7222a1a-f6da-46e7-8e09-d3b9695d3a35",
+		"_postman_id": "ac47ee20-6a3e-44f5-ab78-6a8797f87775",
 		"name": "Deep Wheat API",
 		"description": "FastAPI POC - User Registration, Login, Configurations",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "7870705"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30690787"
 	},
 	"item": [
 		{
@@ -21,17 +21,7 @@
 					"mode": "raw",
 					"raw": "{\n  \"email\": \"user@example.com\",\n  \"name\": \"Test User\",\n  \"password\": \"mysecurepassword\"\n}"
 				},
-				"url": {
-					"raw": "http://localhost:8000/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"register"
-					]
-				}
+				"url": "http://localhost:8000/register"
 			},
 			"response": []
 		},
@@ -49,17 +39,7 @@
 					"mode": "raw",
 					"raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"mysecurepassword\"\n}"
 				},
-				"url": {
-					"raw": "http://localhost:8000/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"login"
-					]
-				}
+				"url": "http://localhost:8000/login"
 			},
 			"response": []
 		},
@@ -81,18 +61,7 @@
 					"mode": "raw",
 					"raw": "{\n  \"area\": 10.5,\n  \"plantation_cost\": 1200,\n  \"expected_profit\": 3000,\n  \"expected_yield\": 250\n}"
 				},
-				"url": {
-					"raw": "http://localhost:8000/user/configurations",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"user",
-						"configurations"
-					]
-				}
+				"url": "http://localhost:8000/user/configurations"
 			},
 			"response": []
 		},
@@ -120,20 +89,35 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "http://localhost:8000/user/configurations/1/upload-photo",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"user",
-						"configurations",
-						"1",
-						"upload-photo"
+				"url": "http://localhost:8000/user/configurations/1/upload-photo"
+			},
+			"response": []
+		},
+		{
+			"name": "Report Generation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/marco/Downloads/diseases_256_256/Mildew0.png"
+						}
 					]
-				}
+				},
+				"url": "http://localhost:8000/report"
 			},
 			"response": []
 		},
@@ -159,18 +143,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:8000/user/configurations",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"user",
-						"configurations"
-					]
-				}
+				"url": "http://localhost:8000/user/configurations"
 			},
 			"response": []
 		},
@@ -192,19 +165,7 @@
 					"mode": "raw",
 					"raw": "{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"area\": 12.0,\n  \"plantation_cost\": 1300,\n  \"expected_profit\": 3500,\n  \"expected_yield\": 275\n}"
 				},
-				"url": {
-					"raw": "http://localhost:8000/user/configurations/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"user",
-						"configurations",
-						"1"
-					]
-				}
+				"url": "http://localhost:8000/user/configurations/1"
 			},
 			"response": []
 		},
@@ -218,19 +179,7 @@
 						"value": "Bearer {{token}}"
 					}
 				],
-				"url": {
-					"raw": "http://localhost:8000/user/configurations/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"user",
-						"configurations",
-						"1"
-					]
-				}
+				"url": "http://localhost:8000/user/configurations/1"
 			},
 			"response": []
 		}

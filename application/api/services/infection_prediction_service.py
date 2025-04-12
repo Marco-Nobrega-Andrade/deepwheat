@@ -29,7 +29,6 @@ def mildew_infected_area_prediction(total_area, p=display_percentages):
     p = p * 100
     
     t = (np.log((1/p) - 0.01) - np.log(1.236)) / np.log(0.938)
-    print(t)
     t = np.round(t)
     
     area = 1 / (0.01 + 1.236 * (0.938 ** t)) * total_area
