@@ -6,7 +6,7 @@
 
 ```bash
 
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate  # or .\.venv\Scripts\Activate.ps1 on Windows
 pip3 install -r requirements.txt
 ```

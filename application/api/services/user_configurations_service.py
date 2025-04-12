@@ -1,4 +1,7 @@
 from typing import List, Optional
+
+from fastapi import UploadFile
+
 from application.api.models.user_configurations_model import UserConfigurationsModel
 from application.api.models.user_configurations_request import UserConfigurationsRequest
 from application.api.repository import user_configurations_repository
@@ -35,3 +38,13 @@ async def update_configuration(user_id: int, config_id: int, config: UserConfigu
 
 async def delete_configuration(user_id: int, config_id: int) -> dict:
     return await user_configurations_repository.delete_user_configuration(config_id, user_id)
+
+async def handle_photo_upload(user_id:int, picture: UploadFile) -> dict:
+    image_data = await picture.read()
+    print(f"Received photo: {picture.filename} (size: {len(image_data)} bytes)")
+
+    return {
+        "filename": picture.filename,
+        "content_type": picture.content_type,
+        "size": len(image_data)
+    }

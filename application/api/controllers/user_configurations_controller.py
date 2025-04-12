@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from typing import List
 
 from application.api.services import user_configurations_service
@@ -20,6 +20,16 @@ async def create_config(
 ):
     domain = await user_configurations_service.create_configuration(user_id, config)
     return to_response_dto(domain)
+
+@router.post("/user/configurations/{config_id}/upload-photo")
+async def upload_config_photo(
+    picture: UploadFile = File(...),
+    user_id: int = Depends(get_current_user_id_from_token)
+):
+    try:
+        return await user_configurations_service.handle_photo_upload(user_id, picture)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 @router.get("/user/configurations", response_model=List[UserConfigurationsResponse])
 async def get_all_configs(user_id: int = Depends(get_current_user_id_from_token)):
