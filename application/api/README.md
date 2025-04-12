@@ -19,7 +19,7 @@ docker-compose up -d
 ```
 
 ## Running the app
-After active the .venv run the following command in the **/application/api** folder:
+After active the .venv run the following command in the **MEIA_ISEP_TEAM7_2024_2025_Challenge_3** folder e.g the root folder of challenge 3:
 
 ``` bash
 
