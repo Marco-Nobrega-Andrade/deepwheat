@@ -1,167 +1,238 @@
 {
-  "info": {
-    "name": "User Configurations API",
-    "_postman_id": "12345678-abcd-efgh-ijkl-123456789abc",
-    "description": "FastAPI POC - User Registration, Login, Configurations",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Register",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"email\": \"user@example.com\",\n  \"name\": \"Test User\",\n  \"password\": \"mysecurepassword\"\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8000/register",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["register"]
-        }
-      }
-    },
-    {
-      "name": "Login",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"mysecurepassword\"\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8000/login",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["login"]
-        }
-      }
-    },
-    {
-      "name": "Create Configuration",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer {{token}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"area\": 10.5,\n  \"plantation_cost\": 1200,\n  \"expected_profit\": 3000,\n  \"expected_yield\": 250\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8000/user/configurations",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["user", "configurations"]
-        }
-      }
-    },
-    {
-      "name": "Get All Configurations",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer {{token}}"
-          }
-        ],
-        "url": {
-          "raw": "http://localhost:8000/user/configurations",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["user", "configurations"]
-        }
-      }
-    },
-    {
-      "name": "Get Configuration by ID",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer {{token}}"
-          }
-        ],
-        "url": {
-          "raw": "http://localhost:8000/user/configurations/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["user", "configurations", "1"]
-        }
-      }
-    },
-    {
-      "name": "Update Configuration",
-      "request": {
-        "method": "PUT",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer {{token}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"area\": 12.0,\n  \"plantation_cost\": 1300,\n  \"expected_profit\": 3500,\n  \"expected_yield\": 275\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8000/user/configurations/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["user", "configurations", "1"]
-        }
-      }
-    },
-    {
-      "name": "Delete Configuration",
-      "request": {
-        "method": "DELETE",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer {{token}}"
-          }
-        ],
-        "url": {
-          "raw": "http://localhost:8000/user/configurations/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["user", "configurations", "1"]
-        }
-      }
-    }
-  ]
+	"info": {
+		"_postman_id": "c7222a1a-f6da-46e7-8e09-d3b9695d3a35",
+		"name": "Deep Wheat API",
+		"description": "FastAPI POC - User Registration, Login, Configurations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7870705"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"user@example.com\",\n  \"name\": \"Test User\",\n  \"password\": \"mysecurepassword\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"mysecurepassword\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Configuration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"area\": 10.5,\n  \"plantation_cost\": 1200,\n  \"expected_profit\": 3000,\n  \"expected_yield\": 250\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/user/configurations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"configurations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload photo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "picture",
+							"type": "file",
+							"src": "/Users/rcmanoel/Pictures/we0dRhvsmPzeV7h1LwYCdrv9KZzIG9ISHPt0iJsmFozozaIyBMU3B2b5d5xMVjenb0tWrPtoDRL8tD9w44WCFQ.webp"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/user/configurations/1/upload-photo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"configurations",
+						"1",
+						"upload-photo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user configurations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/user/configurations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"configurations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Configuration",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"user_id\": 1,\n  \"area\": 12.0,\n  \"plantation_cost\": 1300,\n  \"expected_profit\": 3500,\n  \"expected_yield\": 275\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/user/configurations/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"configurations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Configuration",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/user/configurations/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"configurations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }
