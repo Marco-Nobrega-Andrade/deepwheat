@@ -1,128 +1,95 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "primereact/button";
 import api from "../lib/api";
 
 type Config = {
-  size: number;     // maps to area
-  cost: number;     // maps to plantation_cost
-  price: number;    // maps to expected_yield
-  profit: number;   // maps to expected_profit
+  id?: number;
+  area: number;
+  plantation_cost: number;
+  expected_yield: number;
+  expected_profit: number;
 };
 
 type Props = {
-  onCloseModal?: () => void;
+  initialConfig?: Config;
+  onClose: () => void;
+  onSuccess?: () => void;
 };
 
-export default function ConfigurationForm({ onCloseModal }: Props) {
-  const [submitted, setSubmitted] = useState(false);
+export default function ConfigurationForm({ initialConfig, onClose, onSuccess }: Props) {
   const [config, setConfig] = useState<Config>({
-    size: 0,
-    cost: 0,
-    price: 0,
-    profit: 0,
+    area: NaN,
+    plantation_cost: NaN,
+    expected_yield: NaN,
+    expected_profit: NaN,
   });
 
+
+  const [submitted, setSubmitted] = useState(false);
   const isFormValid =
-    config.size > 0 &&
-    config.cost > 0 &&
-    config.price > 0 &&
-    config.profit > 0;
+    config.area > 0 &&
+    config.plantation_cost > 0 &&
+    config.expected_yield > 0 &&
+    config.expected_profit > 0;
+
+  useEffect(() => {
+    if (initialConfig) {
+      setConfig(initialConfig);
+    }
+  }, [initialConfig]);
+
+  const handleChange = (field: keyof Config, value: number) => {
+    setConfig((prev) => ({ ...prev, [field]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-
     if (!isFormValid) return;
 
     try {
-      const response = await api.post("/user/configurations", {
-        area: config.size,
-        plantation_cost: config.cost,
-        expected_yield: config.price,
-        expected_profit: config.profit,
-      });
-
-      console.log("Configuration saved:", response.data);
-      onCloseModal?.();
+      if (config.id) {
+        await api.put(`/user/configurations/${config.id}`, config);
+      } else {
+        await api.post("/user/configurations", config);
+      }
+      onSuccess?.();
+      onClose();
     } catch (error) {
-      console.error("API error:", error);
-      // Optionally: show toast or user-friendly error message
+      console.error("Error submitting configuration:", error);
     }
-  };
-
-  const handleChange = (field: keyof Config, value: number) => {
-    setConfig((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className="block mb-1 text-sm font-medium text-gray-600">
-          Plantation Size (m²)
-        </label>
-        <input
-          type="number"
-          value={config.size}
-          onChange={(e) => handleChange("size", Number(e.target.value))}
-          className="w-full px-4 py-2 border rounded-xl focus:ring focus:ring-blue-300"
-        />
-        {submitted && config.size <= 0 && (
-          <small className="text-red-500">Size is required</small>
-        )}
-      </div>
+      {["area", "plantation_cost", "expected_yield", "expected_profit"].map((field) => (
+        <div key={field}>
+          <label className="block mb-1 text-sm font-medium text-gray-600 capitalize">
+            {field.replace(/_/g, " ")}
+          </label>
+          <input
+            type="number"
+            min="0"
+            value={config[field as keyof Config] || ""}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              handleChange(field as keyof Config, value < 0 ? 0 : value); // prevent negatives
+            }}
+            className="w-full px-4 py-2 border rounded-xl focus:ring focus:ring-blue-300 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          />
 
-      <div>
-        <label className="block mb-1 text-sm font-medium text-gray-600">
-          Cost per m²
-        </label>
-        <input
-          type="number"
-          value={config.cost}
-          onChange={(e) => handleChange("cost", Number(e.target.value))}
-          className="w-full px-4 py-2 border rounded-xl focus:ring focus:ring-blue-300"
-        />
-        {submitted && config.cost <= 0 && (
-          <small className="text-red-500">Cost is required</small>
-        )}
-      </div>
 
-      <div>
-        <label className="block mb-1 text-sm font-medium text-gray-600">
-          Expected Yield
-        </label>
-        <input
-          type="number"
-          value={config.price}
-          onChange={(e) => handleChange("price", Number(e.target.value))}
-          className="w-full px-4 py-2 border rounded-xl focus:ring focus:ring-blue-300"
-        />
-        {submitted && config.price <= 0 && (
-          <small className="text-red-500">Expected yield is required</small>
-        )}
-      </div>
 
-      <div>
-        <label className="block mb-1 text-sm font-medium text-gray-600">
-          Expected Profit
-        </label>
-        <input
-          type="number"
-          value={config.profit}
-          onChange={(e) => handleChange("profit", Number(e.target.value))}
-          className="w-full px-4 py-2 border rounded-xl focus:ring focus:ring-blue-300"
-        />
-        {submitted && config.profit <= 0 && (
-          <small className="text-red-500">Expected profit is required</small>
-        )}
-      </div>
+          {submitted && (config[field as keyof Config] ?? 0) <= 0 && (
+            <small className="text-red-500">This field is required</small>
+          )}
+        </div>
+      ))}
 
       <div className="mt-6 flex justify-end">
         <Button
           type="submit"
-          label="Save Configuration"
+          label={config.id ? "Update" : "Save"}
           icon="pi pi-save"
           className="p-button-primary"
           disabled={!isFormValid}
