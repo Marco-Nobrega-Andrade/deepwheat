@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Button } from "primereact/button";
 import api from "../lib/api";
 
 type Config = {
@@ -24,8 +23,8 @@ export default function ConfigurationForm({ initialConfig, onClose, onSuccess }:
     expected_profit: NaN,
   });
 
-
   const [submitted, setSubmitted] = useState(false);
+
   const isFormValid =
     config.area > 0 &&
     config.plantation_cost > 0 &&
@@ -73,13 +72,10 @@ export default function ConfigurationForm({ initialConfig, onClose, onSuccess }:
             value={config[field as keyof Config] || ""}
             onChange={(e) => {
               const value = Number(e.target.value);
-              handleChange(field as keyof Config, value < 0 ? 0 : value); // prevent negatives
+              handleChange(field as keyof Config, value < 0 ? 0 : value);
             }}
-            className="w-full px-4 py-2 border rounded-xl focus:ring focus:ring-blue-300 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
-
-
-
           {submitted && (config[field as keyof Config] ?? 0) <= 0 && (
             <small className="text-red-500">This field is required</small>
           )}
@@ -87,13 +83,25 @@ export default function ConfigurationForm({ initialConfig, onClose, onSuccess }:
       ))}
 
       <div className="mt-6 flex justify-end">
-        <Button
+        <button
           type="submit"
-          label={config.id ? "Update" : "Save"}
-          icon="pi pi-save"
-          className="p-button-primary"
           disabled={!isFormValid}
-        />
+          className={`inline-flex items-center px-4 py-2 text-white rounded-xl transition ${isFormValid
+              ? "bg-blue-600 hover:bg-blue-700"
+              : "bg-gray-400 cursor-not-allowed"
+            }`}
+        >
+          <svg
+            className="w-4 h-4 mr-2"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          {config.id ? "Update" : "Save"}
+        </button>
       </div>
     </form>
   );

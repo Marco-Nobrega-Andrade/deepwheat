@@ -62,19 +62,22 @@ export default function ReportGenerator({ config, onUpdateConfig, onReportGenera
         ) : (
           <>
             {!config ? (
-              <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg mb-6">
-                <p className="mb-2">
-                  ⚠️ You don't have a configuration yet. Add one to continue.
-                </p>
+              <div className="flex flex-col justify-center p-3 my-4 shadow-lg rounded-md">
+                <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-lg mb-6 ">
+                  <p className="mb-2">
+                    ⚠️ You don't have a configuration yet. Add one to continue.
+                  </p>
+                </div>
                 <Button
                   label="Add Configuration"
                   icon="pi pi-cog"
                   onClick={() => setShowModal(true)}
-                  className="p-button-sm"
+                  className="p-button-sm self-end"
                 />
               </div>
             ) : (
               <div className="text-sm text-gray-700 border border-gray-200 rounded-md p-4 mb-6 bg-gray-50">
+                <h3 className="text-lg font-semibold mb-2">Saved configuration details</h3>
                 <p><strong>📐 Area:</strong> {config.area} m²</p>
                 <p><strong>💰 Plantation Cost:</strong> ${config.plantation_cost}</p>
                 <p><strong>🌾 Expected Yield:</strong> {config.expected_yield}</p>
@@ -104,7 +107,6 @@ export default function ReportGenerator({ config, onUpdateConfig, onReportGenera
             <div className="mt-6">
               <Button
                 label="Generate the report"
-                icon="pi pi-search"
                 className="w-full p-button-success"
                 disabled={!config || !selectedFile}
                 onClick={handleGenerateReport}

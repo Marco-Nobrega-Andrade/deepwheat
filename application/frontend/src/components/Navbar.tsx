@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { LogOut, Settings, Home } from "lucide-react";
+import { LogOut, Settings, FileBarChart } from "lucide-react";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -7,7 +7,7 @@ export default function Navbar() {
   const handleLogout = () => {
     // Clear session/token logic goes here
     console.log("Logging out...");
-    navigate("/");
+    navigate("/login");
   };
 
   return (
@@ -25,12 +25,12 @@ export default function Navbar() {
       <ul className="flex items-center gap-6 text-gray-700 font-medium text-sm">
         <li>
           <Link
-            to="/dashboard"
+            to="/"
             className="group relative transition"
           >
             <span className="flex items-center gap-1 hover:text-blue-600 transition">
-              <Home size={16} />
-              Home
+              <FileBarChart size={16} />
+              Reports
             </span>
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
           </Link>

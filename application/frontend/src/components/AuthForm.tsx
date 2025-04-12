@@ -1,30 +1,44 @@
-// src/components/AuthForm.tsx
 import { useState } from "react";
-// At the top of src/components/AuthForm.tsx
 import { useNavigate } from "react-router-dom";
-
+import api from "../lib/api"; // make sure axios is set up here
 
 export default function AuthForm() {
   const [mode, setMode] = useState<"login" | "register">("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (mode === "login") {
-      console.log("Logging in with", { email, password });
-      // Simulate successful login
+    setLoading(true);
+    setError(null);
+
+    try {
+      const payload =
+        mode === "login"
+          ? { email, password }
+          : { email, password, name };
+
+      const response = await api.post(
+        mode === "login" ? "/login" : "/register",
+        payload
+      );
+
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+
       navigate("/dashboard");
-    } else {
-      console.log("Registering with", { name, email, password });
-      // Simulate successful registration
-      navigate("/dashboard");
+    } catch (err: any) {
+      const message = err.response?.data?.message || "Something went wrong";
+      setError(message);
+    } finally {
+      setLoading(false);
     }
   };
-  
 
   return (
     <form
@@ -34,6 +48,10 @@ export default function AuthForm() {
       <h2 className="text-2xl font-bold text-center text-gray-800">
         {mode === "login" ? "Login" : "Register"}
       </h2>
+
+      {error && (
+        <p className="text-center text-sm text-red-600 font-medium">{error}</p>
+      )}
 
       {mode === "register" && (
         <div>
@@ -78,9 +96,16 @@ export default function AuthForm() {
 
       <button
         type="submit"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl transition"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-xl transition disabled:opacity-50"
+        disabled={loading}
       >
-        {mode === "login" ? "Sign In" : "Register"}
+        {loading
+          ? mode === "login"
+            ? "Signing In..."
+            : "Registering..."
+          : mode === "login"
+            ? "Sign In"
+            : "Register"}
       </button>
 
       <p className="text-center text-sm text-gray-600">
