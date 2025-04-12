@@ -31,18 +31,13 @@ async def upload_config_photo(
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 
-@router.get("/user/configurations", response_model=List[UserConfigurationsResponse])
-async def get_all_configs(user_id: int = Depends(get_current_user_id_from_token)):
-    domain_list = await user_configurations_service.get_all_configurations(user_id)
-    return [to_response_dto(config) for config in domain_list]
-
-@router.get("/user/configurations/{user_id}", response_model=UserConfigurationsResponse)
+@router.get("/user/configurations", response_model=UserConfigurationsResponse)
 async def get_config_by_user_id(
     user_id: int = Depends(get_current_user_id_from_token)
 ):
     domain = await user_configurations_service.get_configuration_by_user_id(user_id)
     if domain is None:
-        raise HTTPException(status_code=404, detail="Configuration not found")
+        raise HTTPException(status_code=500, detail="Configuration not found")
     return to_response_dto(domain)
 
 @router.put("/user/configurations/{config_id}", response_model=UserConfigurationsResponse)
