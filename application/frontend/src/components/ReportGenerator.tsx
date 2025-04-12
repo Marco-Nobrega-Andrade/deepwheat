@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { ProgressSpinner } from "primereact/progressspinner";
 import PanelCard from "./PanelCard";
 import ConfigurationForm from "./ConfigurationForm";
 import api from "../lib/api";
+import { Toast } from "primereact/toast";
 
 type Config = {
   id: number;
@@ -24,6 +25,8 @@ export default function ReportGenerator({ config, onUpdateConfig, onReportGenera
   const [showModal, setShowModal] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const toast = useRef<Toast>(null);
+
 
   const handleGenerateReport = async () => {
     if (!config || !selectedFile) return;
@@ -44,15 +47,23 @@ export default function ReportGenerator({ config, onUpdateConfig, onReportGenera
       );
 
       onReportGenerated(response.data);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error uploading image:", error);
+      toast.current?.show({
+        severity: "error",
+        summary: "Upload Error",
+        detail: error.response?.data?.message || "Failed to generate the report",
+        life: 4000,
+      });
     } finally {
       setSubmitting(false);
     }
   };
 
+
   return (
     <div className="p-4 space-y-6">
+      <Toast ref={toast} />
       <PanelCard title="Report Generator">
         {submitting ? (
           <div className="flex flex-col items-center justify-center h-64">

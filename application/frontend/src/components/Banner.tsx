@@ -1,6 +1,6 @@
 export default function Banner() {
   return (
-    <div className="relative w-full h-56 overflow-hidden shadow-md">
+    <div className="relative w-full h-56 overflow-hidden shadow-md rounded-md">
       <div
         className="absolute inset-0 bg-[url(/src/assets/wheat_tech.jpg)] bg-cover bg-[center_30%] bg-no-repeat"
       />

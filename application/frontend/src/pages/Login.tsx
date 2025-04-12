@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../lib/api";
 import { Toast } from "primereact/toast";
+import { AuthResponse } from "../models/auth-reponse.model";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await api.post("/login", { email, password });
+      const response = await api.post<AuthResponse>("/login", { email, password });
       localStorage.setItem("token", response.data.access_token);
       navigate("/");
     } catch (err: any) {

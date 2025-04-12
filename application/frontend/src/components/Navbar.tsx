@@ -5,19 +5,18 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear session/token logic goes here
-    console.log("Logging out...");
-    navigate("/login");
+    localStorage.removeItem("token");
+    navigate("/login")
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm px-6 py-4 flex items-center justify-between">
+    <nav className="bg-white border-b border-gray-200 shadow-sm px-2 py-1 flex items-center justify-between">
       {/* Logo + Brand Name */}
       <Link to="/" className="flex items-center gap-3">
         <img
-          src="/logo.png" // <-- Place the logo image in the public folder
+          src="/logo.png"
           alt="DeepWheat Logo"
-          className="h-9 w-9 object-contain"
+          className="h-16 w-16 object-contain"
         />
       </Link>
 

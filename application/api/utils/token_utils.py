@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 SECRET_KEY = "your-secret-key"
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 1260
+ACCESS_TOKEN_EXPIRE_MINUTES = 12600
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 

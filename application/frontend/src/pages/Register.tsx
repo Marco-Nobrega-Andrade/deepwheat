@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../lib/api";
+import { AuthResponse } from "../models/auth-reponse.model";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -16,13 +17,13 @@ export default function Register() {
     setError(null);
 
     try {
-      const response = await api.post("/register", {
+      const response = await api.post<AuthResponse>("/register", {
         name,
         email,
         password,
       });
-      localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
+      localStorage.setItem("token", response.data.access_token);
+      navigate("/");
     } catch (err: any) {
       setError(err.response?.data?.message || "Registration failed");
     } finally {
