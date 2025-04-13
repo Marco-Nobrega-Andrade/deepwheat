@@ -1,6 +1,8 @@
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 import { ReportResult } from "../models/report-result.model";
 
-// src/components/ReportResultPanel.tsx
+
 type Props = {
   result: ReportResult;
 };
@@ -8,11 +10,49 @@ type Props = {
 export default function ReportResultPanel({ result }: Props) {
   const isHealthy = result.wheat_disease === "Healthy";
 
+  const handleDownloadPDF = () => {
+    const doc = new jsPDF();
+
+    doc.setFontSize(16);
+    doc.text("DeepWheat - Wheat Health Report", 14, 20);
+    doc.setFontSize(12);
+    doc.text(`Detected Disease: ${result.wheat_disease}`, 14, 30);
+
+    if (!isHealthy) {
+      autoTable(doc, {
+        startY: 40,
+        head: [["Day", "Infected Area", "Yield Loss", "Profit Loss", "Plantation Loss"]],
+        body: result.infection_by_day.map((entry) => [
+          entry.day,
+          entry.infected_area,
+          entry.yield_loss,
+          entry.economic_impact.profit_loss,
+          entry.economic_impact.plantation_loss,
+        ]),
+      });
+
+      doc.text("Treatment:", 14, doc.lastAutoTable.finalY + 10);
+      doc.setFontSize(11);
+      doc.text(result.disease_treatment, 14, doc.lastAutoTable.finalY + 18);
+    } else {
+      doc.setFontSize(12);
+      doc.text("No disease was detected. The wheat is healthy.", 14, 40);
+    }
+
+    doc.save("wheat_report.pdf");
+  };
+
   return (
     <div className="bg-white border border-gray-200 shadow-md rounded-xl p-6 space-y-6">
-      <h2 className="text-2xl font-bold text-blue-700">
-        🧬 Wheat Health Report
-      </h2>
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold text-blue-700">🧬 Wheat Health Report</h2>
+        <button
+          onClick={handleDownloadPDF}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-sm"
+        >
+          📄 Download PDF
+        </button>
+      </div>
 
       {isHealthy ? (
         <div className="bg-green-50 border-l-4 border-green-500 text-green-800 p-4 rounded-lg">

@@ -55,7 +55,7 @@ export default function ReportGenerator({ config, onUpdateConfig, onReportGenera
   return (
     <div className="p-4 space-y-6">
       <Toast ref={toast} />
-      <PanelCard title="Report Generator">
+      <PanelCard title="📊 Report Generator">
         {submitting ? (
           <div className="flex flex-col items-center justify-center h-64">
             <ProgressSpinner />
