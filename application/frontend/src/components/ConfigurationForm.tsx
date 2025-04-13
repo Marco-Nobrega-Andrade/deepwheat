@@ -1,14 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import api from "../lib/api";
 import { Toast } from "primereact/toast";
+import { Config } from "../models/user-configuration.model";
 
-type Config = {
-  id?: number;
-  area: number;
-  plantation_cost: number;
-  expected_yield: number;
-  expected_profit: number;
-};
 
 type Props = {
   initialConfig?: Config;

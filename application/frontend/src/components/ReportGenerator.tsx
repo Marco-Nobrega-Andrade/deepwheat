@@ -6,19 +6,13 @@ import PanelCard from "./PanelCard";
 import ConfigurationForm from "./ConfigurationForm";
 import api from "../lib/api";
 import { Toast } from "primereact/toast";
-
-type Config = {
-  id: number;
-  area: number;
-  plantation_cost: number;
-  expected_yield: number;
-  expected_profit: number;
-};
+import { Config } from "../models/user-configuration.model";
+import { ReportResult } from "../models/report-result.model";
 
 type Props = {
   config: Config | null;
   onUpdateConfig: () => void;
-  onReportGenerated: (result: any) => void;
+  onReportGenerated: (result: ReportResult) => void;
 };
 
 export default function ReportGenerator({ config, onUpdateConfig, onReportGenerated }: Props) {
@@ -29,36 +23,33 @@ export default function ReportGenerator({ config, onUpdateConfig, onReportGenera
 
 
   const handleGenerateReport = async () => {
-    if (!config || !selectedFile) return;
+    if (!selectedFile) return;
 
     const formData = new FormData();
-    formData.append("picture", selectedFile);
+    formData.append("image", selectedFile);
 
     try {
       setSubmitting(true);
-      const response = await api.post(
-        `/user/configurations/${config.id}/upload-photo`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await api.post("/report", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-      onReportGenerated(response.data);
+      onReportGenerated(response.data); // assumes this is the report JSON
     } catch (error: any) {
-      console.error("Error uploading image:", error);
+      console.error("Error generating report:", error);
       toast.current?.show({
         severity: "error",
-        summary: "Upload Error",
-        detail: error.response?.data?.message || "Failed to generate the report",
+        summary: "Report Error",
+        detail: error.response?.data?.message || "Failed to generate report",
         life: 4000,
       });
     } finally {
       setSubmitting(false);
     }
   };
+
 
 
   return (

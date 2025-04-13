@@ -1,3 +1,4 @@
+import logging
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
@@ -7,6 +8,11 @@ from application.api.controllers.user_configurations_controller import router as
 from application.api.controllers.report_controller import router as report_router
 
 from application.api.infrastructure.database_connection import database, create_all_tables, connect
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+)
 
 app = FastAPI()
 

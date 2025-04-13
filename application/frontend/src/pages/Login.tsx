@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../lib/api";
 import { Toast } from "primereact/toast";
-import { AuthResponse } from "../models/auth-reponse.model";
+import { AuthResponse } from "../models/auth-response.model";
 
 export default function Login() {
   const [email, setEmail] = useState("");

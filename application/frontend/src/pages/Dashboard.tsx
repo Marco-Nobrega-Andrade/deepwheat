@@ -3,14 +3,7 @@ import ReportGenerator from "../components/ReportGenerator";
 import ReportResultPanel from "../components/ReportResultPanel";
 import api from "../lib/api";
 import { ProgressSpinner } from "primereact/progressspinner";
-
-type Config = {
-  id: number;
-  area: number;
-  plantation_cost: number;
-  expected_yield: number;
-  expected_profit: number;
-};
+import { Config } from "../models/user-configuration.model";
 
 export default function Dashboard() {
   const [config, setConfig] = useState<Config | null>(null);

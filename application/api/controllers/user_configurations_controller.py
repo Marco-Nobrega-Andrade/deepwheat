@@ -1,6 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
-from typing import List
+import logging
 
+# Set up logger
+logger = logging.getLogger(__name__)
+
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from application.api.services import user_configurations_service
 from application.api.models.user_configurations_model import UserConfigurationsModel
 from application.api.models.user_configurations_request import UserConfigurationsRequest
@@ -37,6 +40,7 @@ async def get_config_by_user_id(
 ):
     domain = await user_configurations_service.get_configuration_by_user_id(user_id)
     if domain is None:
+        logger.error("failed to get configuration for user_id: {user_id}")
         raise HTTPException(status_code=500, detail="Configuration not found")
     return to_response_dto(domain)
 

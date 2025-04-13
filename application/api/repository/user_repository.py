@@ -1,7 +1,7 @@
 from passlib.context import CryptContext
 from application.api.infrastructure.database_connection import database
 from application.api.models.register_request import RegisterRequest
-from application.api.models.register_response import RegisterResponse
+from application.api.models.user_register_model import UserRegisterModel
 from application.api.schemas.users_schema import users
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -20,7 +20,7 @@ async def create_user(user: RegisterRequest):
         password=user.password  # already hashed!
     )
     user_id = await database.execute(query)
-    return RegisterResponse(id=user_id, name=user.name)
+    return UserRegisterModel(id=user_id, name=user.name)
 
 
 
