@@ -2,6 +2,8 @@ export type ReportResult = {
   wheat_disease: WheatDisease;
   infection_by_day: InfectionDay[];
   disease_treatment: string;
+  disease_cause: string;
+  disease_management: string;
 };
 
 export type WheatDisease =

@@ -34,6 +34,14 @@ export default function ReportResultPanel({ result }: Props) {
       doc.text("Treatment:", 14, doc.lastAutoTable.finalY + 10);
       doc.setFontSize(11);
       doc.text(result.disease_treatment, 14, doc.lastAutoTable.finalY + 18);
+      doc.setFontSize(12);
+      doc.text("Cause:", 14, doc.lastAutoTable.finalY + 26);
+      doc.setFontSize(11);
+      doc.text(result.disease_cause, 14, doc.lastAutoTable.finalY + 34);
+      doc.setFontSize(12);
+      doc.text("Management:", 14, doc.lastAutoTable.finalY + 42);
+      doc.setFontSize(11);
+      doc.text(result.disease_management, 14, doc.lastAutoTable.finalY + 50);
     } else {
       doc.setFontSize(12);
       doc.text("No disease was detected. The wheat is healthy.", 14, 40);
@@ -93,9 +101,19 @@ export default function ReportResultPanel({ result }: Props) {
             </div>
           </div>
 
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-lg">
-            <strong>⚠️ Treatment Info:</strong> {result.disease_treatment}
+          <div className="mt-6">
+            <h4 className="text-md font-medium text-gray-700 mb-2">💊 Treatment</h4>
+            <p className="text-sm">{result.disease_treatment}</p>
           </div>
+          <div className="mt-6">
+            <h4 className="text-md font-medium text-gray-700 mb-2">🧪 Cause of Disease</h4>
+            <p className="text-sm">{result.disease_cause}</p>
+          </div>
+          <div className="mt-6">
+            <h4 className="text-md font-medium text-gray-700 mb-2">💼 Disease Management</h4>
+            <p className="text-sm">{result.disease_management}</p>
+          </div>
+
         </>
       )}
     </div>

@@ -23,7 +23,9 @@ def generate_json_report(days, infected_areas, profit_loss, plantation_loss, yie
     report = {
         "wheat_disease": classified_disease,
         "infection_by_day": infection_by_day,
-        "disease_treatment": disease_treatment
+        "disease_treatment": disease_treatment.get("treatment"),
+        "disease_cause": disease_treatment.get("cause"),
+        "disease_management": disease_treatment.get("management"),
     }
     return report
 
@@ -44,7 +46,11 @@ async def generate_report(image, user_id):
     profit_loss, plantation_loss, yield_loss = predict_loss(
         configurations.area, infected_areas, configurations.plantation_cost, configurations.expected_profit, configurations.expected_yield
     )
-    disease_treatment = generate_treatment(classified_disease)
+    try:
+        disease_treatment = await generate_treatment(classified_disease)
+    except Exception as e:
+        # Instead of raising an HTTPException, simply return the exception message as a response.
+        return {"error": str(e)}
 
     return generate_json_report(days, infected_areas, profit_loss,
                                  plantation_loss, yield_loss,
