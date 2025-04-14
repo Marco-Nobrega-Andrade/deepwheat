@@ -1,215 +1,228 @@
-===== RELATÓRIO DE MÉTRICAS DE AVALIAÇÃO DO MODELO =====
-Data e hora: 2025-04-13 17:05:01
+===== MODEL EVALUATION METRICS REPORT =====
+Date and time: 2025-04-13 17:05:01
+
+
+**LEGEND**:
+> A: Aligned (follows instructions precisely)
+> F: Factual (factually correct when verified)
+> O: On-topic (answers the question asked, without veering off)
+
+**SCALE**: 
+> 1: Poor (no alignment, factuality or relevance )
+> 2: Weak (A: follows instructions, answer correctly or with relevance but with errors and inconsistencies)
+> 3: Adequate (moderate alignment, factuality or relevance)
+> 4: Good (mostly aligned, factual and on-topic, minor gaps)
+> 5: Excellent (flawless alignment, factual rigor, and focus)
 
 =====================================================
 
-Modelo: phi2-eficiente
-Perplexidade média: 3.9284
-Perplexidades individuais: 3.9284
-Perdas médias: 1.3682
-Perdas individuais: 1.3682
+Modelo: phi2-1
+Average perplexities: 3.9284
+Individual perplexities: 3.9284
+Average losses: 1.3682
+Individual losses: 1.3682
 
 Resultados de HumanEval:
 Prompt: List all wheat diseases. Be brief and specific. Answer in one or two short sentences only.
-Saída: Wheat diseases include powdery mildew, leaf rust, stripe rust and septoria leaf blotch. Powdery Mildew is caused by the fungus Erysiphe graminis var. tritici and affects the leaves, causing powder-like white spots on the surface. Leaf rust is also
-Avaliação: [A = x , F = x , O = x]
+Output: Wheat diseases include powdery mildew, leaf rust, stripe rust and septoria leaf blotch. Powdery Mildew is caused by the fungus Erysiphe graminis var. tritici and affects the leaves, causing powder-like white spots on the surface. Leaf rust is also
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of rust in wheat? Be brief and specific. Answer in one or two short sentences only.
-Saída: Rust symptoms in yellow rust include yellow-brown pustules on leaves, stems, and grain. These pusules can cause significant yield losses. In brown rust, brownish-yellow pearly spores are produced on leaf surfaces and can spread rapidly. Both types of yellow and brown rusted wheat
-Avaliação: [A = x , F = x , O = x]
+Output: Rust symptoms in yellow rust include yellow-brown pustules on leaves, stems, and grain. These pusules can cause significant yield losses. In brown rust, brownish-yellow pearly spores are produced on leaf surfaces and can spread rapidly. Both types of yellow and brown rusted wheat
+Evaluation: [A = 3 , F = 4 , O = 5]
 
 Prompt: What is the most effective treatment method for rust in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most commonly used treatment methods for wheat rust are fungicides and crop rotation. Fungicides can be applied before or during the growing season to prevent the development of rust. Crop rotation can also help to reduce the spread of the disease by planting non-host crops in the affected fields. Other
-Avaliação: [A = x , F = x , O = x]
+Output: The most commonly used treatment methods for wheat rust are fungicides and crop rotation. Fungicides can be applied before or during the growing season to prevent the development of rust. Crop rotation can also help to reduce the spread of the disease by planting non-host crops in the affected fields. Other
+Evaluation: [A = 3 , F = 4 , O = 5]
 
 Prompt: Describe the key visual symptoms of powdery mildew in wheat. Be brief and specific. Answer in one or two short sentences only.
-Saída: Powdery Mildew symptoms on wheat include yellowish-white to tan powder-like spots on leaves and stems. These spots may coalesce and cause premature defoliation and reduced grain yield. 
+Output: Powdery Mildew symptoms on wheat include yellowish-white to tan powder-like spots on leaves and stems. These spots may coalesce and cause premature defoliation and reduced grain yield. 
 
 Follow-up Exercise 1:
 What are the primary means of managing powderous mildews
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 4]
 
 Prompt: What is the most effective treatment method for powdery mildew in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most efficient treatment methods for wheat powder mildews include the use of fungicides such as triazoles, strobilurins, and SDHIs. However, the effectiveness of these treatments can be reduced due to the development of resistance in some pathogen populations. Therefore, it is important to
-Avaliação: [A = x , F = x , O = x]
+Output: The most efficient treatment methods for wheat powder mildews include the use of fungicides such as triazoles, strobilurins, and SDHIs. However, the effectiveness of these treatments can be reduced due to the development of resistance in some pathogen populations. Therefore, it is important to
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of septoria leaf blotch in wheat. Be brief and specific. Answer in one or two short sentences only.
-Saída: Septoria blot chan causes tan to brown spots on leaves, often with yellow halos. The spots can coalesce to form larger lesions. In severe cases, the disease can cause significant yield loss. 
+Output: Septoria blot chan causes tan to brown spots on leaves, often with yellow halos. The spots can coalesce to form larger lesions. In severe cases, the disease can cause significant yield loss. 
 
 Use Case 3: Farmer-Scientist Collaboration for Disease Management
 Scenario
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 1 , F = 3 , O = 4]
 
 Prompt: What is the most effective treatment method for septoria in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most common treatment methods for wheat septicoria include fungicides, such as triazoles and strobilurins. The timing of application is crucial for maximum efficacy, and resistant cultivars should be considered as well. 
+Output: The most common treatment methods for wheat septicoria include fungicides, such as triazoles and strobilurins. The timing of application is crucial for maximum efficacy, and resistant cultivars should be considered as well. 
 Output: Additionally, crop rotation, tillage practices, cultural practices
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 3 , F = 4 , O = 5]
 
 Prompt: Name one integrated disease management strategy for wheat diseases. Keep it concise. Answer in one or two short sentences only.
-Saída: Crop rotation with non-host crops can help manage wheat disease by reducing the buildup of pathogens in the soil. Additionally, the use of resistant varieties can also be effective in controlling diseases like stripe rust and tan spot. 
+Output: Crop rotation with non-host crops can help manage wheat disease by reducing the buildup of pathogens in the soil. Additionally, the use of resistant varieties can also be effective in controlling diseases like stripe rust and tan spot. 
 
 Exercise 5: Multiple Choice
 Which of the following is an
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 4]
 
 Prompt: What is the role of crop rotation in managing wheat diseases? Answer briefly. Answer in one or two short sentences only.
-Saída: Crop rotation can help manage wheat disease by reducing the buildup of pathogens in the soil and promoting the growth of disease-resistant crops. It can also help break disease cycles and reduce the need for fungicides. 
+Output: Crop rotation can help manage wheat disease by reducing the buildup of pathogens in the soil and promoting the growth of disease-resistant crops. It can also help break disease cycles and reduce the need for fungicides. 
 
 Example: Fungicides are often used to manage powdery mildew in
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 =====================================================
 
-Modelo: phi2-medio
-Perplexidade média: 3.5356
-Perplexidades individuais: 3.5356
-Perdas médias: 1.2629
-Perdas individuais: 1.2629
+Modelo: phi2-2
+Average perplexities: 3.5356
+Individual perplexities: 3.5356
+Average losses: 1.2629
+Individual losses: 1.2629
 
 Resultados de HumanEval:
 Prompt: List all wheat diseases. Be brief and specific. Answer in one or two short sentences only.
-Saída: All wheat is susceptible to rust. It is the most serious disease affecting wheat worldwide. Other diseases include brown rust, leaf rust and septoria. Wheat diseases can be controlled with fungicides and resistant varieties.
-Avaliação: [A = x , F = x , O = x]
+Output: All wheat is susceptible to rust. It is the most serious disease affecting wheat worldwide. Other diseases include brown rust, leaf rust and septoria. Wheat diseases can be controlled with fungicides and resistant varieties.
+Evaluation: [A = 3 , F = 4 , O = 4]
 
 Prompt: Describe the key visual symptoms of rust in wheat? Be brief and specific. Answer in one or two short sentences only.
-Saída: Rust in winter wheat typically results in reddish brown lesions on leaves, stems, and lower leaves. The lesions may also appear on the stems and leaves of the upper leaves and the grains. In some cases, the lesions can be severe and cause significant yield loss. Rust can also cause stunted growth
-Avaliação: [A = x , F = x , O = x]
+Output: Rust in winter wheat typically results in reddish brown lesions on leaves, stems, and lower leaves. The lesions may also appear on the stems and leaves of the upper leaves and the grains. In some cases, the lesions can be severe and cause significant yield loss. Rust can also cause stunted growth
+Evaluation: [A = 4 , F = 5 , O = 5]
 
 Prompt: What is the most effective treatment method for rust in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: There are several treatment methods for wheat rust, including fungicides, resistant varieties, crop rotation, and integrated pest management (IPM) strategies. Fungicides are commonly used to control rust outbreaks, but it is important to rotate fungicide classes to prevent resistance. Resistant wheat varieties can also be
-Avaliação: [A = x , F = x , O = x]
+Output: There are several treatment methods for wheat rust, including fungicides, resistant varieties, crop rotation, and integrated pest management (IPM) strategies. Fungicides are commonly used to control rust outbreaks, but it is important to rotate fungicide classes to prevent resistance. Resistant wheat varieties can also be
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of powdery mildew in wheat. Be brief and specific. Answer in one or two short sentences only.
-Saída: Powdery Mildew: The disease causes a white powder-like growth on the leaves and stems of wheat plants. The affected leaves may appear dull and unhealthy, with a powder residue covering them. This disease can significantly reduce wheat yields and quality. 
+Output: Powdery Mildew: The disease causes a white powder-like growth on the leaves and stems of wheat plants. The affected leaves may appear dull and unhealthy, with a powder residue covering them. This disease can significantly reduce wheat yields and quality. 
 Output: Question: How does powder mildews
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 4 , F = 5 , O = 5]
 
 Prompt: What is the most effective treatment method for powdery mildew in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most common treatment methods for wheat powder mildews include fungicide application, crop rotation, and seed treatment with fungicides. These methods can be effective in reducing disease severity and preventing yield losses. Other methods such as biological control and integrated pest management can also be used in combination with chemical control methods to
-Avaliação: [A = x , F = x , O = x]
+Output: The most common treatment methods for wheat powder mildews include fungicide application, crop rotation, and seed treatment with fungicides. These methods can be effective in reducing disease severity and preventing yield losses. Other methods such as biological control and integrated pest management can also be used in combination with chemical control methods to
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of septoria leaf blotch in wheat. Be brief and specific. Answer in one or two short sentences only.
-Saída: Septoria blotches typically appear as small, dark spots on wheat leaves, with concentric rings of discoloration. These spots can grow in size and merge together, resulting in large blotchy areas on the leaves. The affected leaves may also show signs of wilting or necrosis. Overall,
-Avaliação: [A = x , F = x , O = x]
+Output: Septoria blotches typically appear as small, dark spots on wheat leaves, with concentric rings of discoloration. These spots can grow in size and merge together, resulting in large blotchy areas on the leaves. The affected leaves may also show signs of wilting or necrosis. Overall,
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 Prompt: What is the most effective treatment method for septoria in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most commonly used treatments for managing septicoria are fungicides such as triazoles and strobilurins. These can be applied either as a foliar spray or a seed treatment to prevent infection. Other methods include crop rotation and tillage practices that help to reduce disease pressure. It is
-Avaliação: [A = x , F = x , O = x]
+Output: The most commonly used treatments for managing septicoria are fungicides such as triazoles and strobilurins. These can be applied either as a foliar spray or a seed treatment to prevent infection. Other methods include crop rotation and tillage practices that help to reduce disease pressure. It is
+Evaluation: [A = 3 , F = 4 , O = 5]
 
 Prompt: Name one integrated disease management strategy for wheat diseases. Keep it concise. Answer in one or two short sentences only.
-Saída: Crop rotation can be an effective integrated management practice for controlling wheat disease. It helps break disease cycles and reduces disease pressure. Response: One integrated approach for managing wheat powdery mildew is the use of fungicides, such as triazoles, to control disease development. This method has been shown
-Avaliação: [A = x , F = x , O = x]
+Output: Crop rotation can be an effective integrated management practice for controlling wheat disease. It helps break disease cycles and reduces disease pressure. Response: One integrated approach for managing wheat powdery mildew is the use of fungicides, such as triazoles, to control disease development. This method has been shown
+Evaluation: [A = 2 , F = 4 , O = 3]
 
 Prompt: What is the role of crop rotation in managing wheat diseases? Answer briefly. Answer in one or two short sentences only.
-Saída: Crop rotation can help manage wheat disease by breaking disease cycles and reducing the buildup of disease-causing organisms in the soil. It also allows for the cultivation of non-host crops that can suppress disease development. Cultural practices like tillage and residue management can also be integrated with crop rotations
-Avaliação: [A = x , F = x , O = x]
+Output: Crop rotation can help manage wheat disease by breaking disease cycles and reducing the buildup of disease-causing organisms in the soil. It also allows for the cultivation of non-host crops that can suppress disease development. Cultural practices like tillage and residue management can also be integrated with crop rotations
+Evaluation: [A = 4 , F = 5 , O = 5]
 
 =====================================================
 
-Modelo: phi2-poderoso
-Perplexidade média: 3.4004
-Perplexidades individuais: 3.5750, 3.3588, 3.2673
-Perdas médias: 1.2232
-Perdas individuais: 1.2740, 1.2116, 1.1840
+Modelo: phi2-3
+Average perplexities: 3.4004
+Individual perplexities: 3.5750, 3.3588, 3.2673
+Average losses: 1.2232
+Individual losses: 1.2740, 1.2116, 1.1840
 
 Resultados de HumanEval:
 Prompt: List all wheat diseases. Be brief and specific. Answer in one or two short sentences only.
-Saída: Wheat diseases include powdery mildew, stagonospora nodorum blotch, tan spot, brown rust, yellow rust and leaf rust. Fusarium head blight is also a common wheat disease. Wheat scab, glume blotches, and septoria leaf blotching are other diseases
-Avaliação: [A = x , F = x , O = x]
+Output: Wheat diseases include powdery mildew, stagonospora nodorum blotch, tan spot, brown rust, yellow rust and leaf rust. Fusarium head blight is also a common wheat disease. Wheat scab, glume blotches, and septoria leaf blotching are other diseases
+Evaluation: [A = 4 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of rust in wheat? Be brief and specific. Answer in one or two short sentences only.
-Saída: Rust in Wheat is a disease that causes small, yellowish-orange pustules to form on the leaves, stems, and grain heads of wheat plants. The p
-Avaliação: [A = x , F = x , O = x]
+Output: Rust in Wheat is a disease that causes small, yellowish-orange pustules to form on the leaves, stems, and grain heads of wheat plants. The p
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 Prompt: What is the most effective treatment method for rust in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most efficient treatment for yellow rust is through the use of fungicides such as triazoles and strobilurins. However, the overuse of these chemicals can lead to resistance and decreased effectiveness. Integrated disease management strategies that include crop rotation, resistant varieties, and biological control methods can also be
-Avaliação: [A = x , F = x , O = x]
+Output: The most efficient treatment for yellow rust is through the use of fungicides such as triazoles and strobilurins. However, the overuse of these chemicals can lead to resistance and decreased effectiveness. Integrated disease management strategies that include crop rotation, resistant varieties, and biological control methods can also be
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of powdery mildew in wheat. Be brief and specific. Answer in one or two short sentences only.
-Saída: The key symptoms are powder-like, white fungal growths on the leaves and stems of the wheat plants. The growth is often more visible on young leaves, and it can cause a reduction in photosynthesis and growth of affected plants, leading to lower yields. 
+Output: The key symptoms are powder-like, white fungal growths on the leaves and stems of the wheat plants. The growth is often more visible on young leaves, and it can cause a reduction in photosynthesis and growth of affected plants, leading to lower yields. 
 
 In summary, powder
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 5]
 
 Prompt: What is the most effective treatment method for powdery mildew in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most common treatment for Powdery Mildew is fungicide application. The specific fungicides used are typically triazoles, strobilurins, or SDHIs. These fungicidal agents are applied to the leaves of wheat plants to prevent or control the development of Powderly Milde. Application
-Avaliação: [A = x , F = x , O = x]
+Output: The most common treatment for Powdery Mildew is fungicide application. The specific fungicides used are typically triazoles, strobilurins, or SDHIs. These fungicidal agents are applied to the leaves of wheat plants to prevent or control the development of Powderly Milde. Application
+Evaluation: [A = 4 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of septoria leaf blotch in wheat. Be brief and specific. Answer in one or two short sentences only.
-Saída: Septoria blotches on wheat leaves appear as small, circular lesions with a dark brown or black center. The lesions may coalesce and cover large areas of the leaf. In severe cases, the lesions can cause significant yield loss. 
+Output: Septoria blotches on wheat leaves appear as small, circular lesions with a dark brown or black center. The lesions may coalesce and cover large areas of the leaf. In severe cases, the lesions can cause significant yield loss. 
 
 Use Case 1: A group of farmers are discussing the
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 4]
 
 Prompt: What is the most effective treatment method for septoria in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most efficient treatment for controlling septicoria leaf blotch in winter wheat is a combination of fungicide application and crop rotation with non-host crops. Fungicide applications can be timed to coincide with peak disease activity, and the use of resistant wheat varieties can also help reduce the impact of se
-Avaliação: [A = x , F = x , O = x]
+Output: The most efficient treatment for controlling septicoria leaf blotch in winter wheat is a combination of fungicide application and crop rotation with non-host crops. Fungicide applications can be timed to coincide with peak disease activity, and the use of resistant wheat varieties can also help reduce the impact of se
+Evaluation: [A = 3 , F = 4 , O = 5]
 
 Prompt: Name one integrated disease management strategy for wheat diseases. Keep it concise. Answer in one or two short sentences only.
-Saída: Crop rotation can be an effective integrated management approach for managing wheat pathogens like powdery mildew and stagonospora. By rotating crops with non-host plants, the disease cycle can disrupt, reducing the impact of diseases on subsequent crops. 
+Output: Crop rotation can be an effective integrated management approach for managing wheat pathogens like powdery mildew and stagonospora. By rotating crops with non-host plants, the disease cycle can disrupt, reducing the impact of diseases on subsequent crops. 
 
 Exercise 2:   Answer:
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 5]
 
 Prompt: What is the role of crop rotation in managing wheat diseases? Answer briefly. Answer in one or two short sentences only.
-Saída: Crop rotation can help manage wheat disease by breaking disease cycles and reducing the buildup of pathogens in the soil. For example, rotating wheat with non-host crops such as barley or oats can reduce the risk of diseases like powdery mildew or septoria. Additionally, planting legumes like cl
-Avaliação: [A = x , F = x , O = x]
+Output: Crop rotation can help manage wheat disease by breaking disease cycles and reducing the buildup of pathogens in the soil. For example, rotating wheat with non-host crops such as barley or oats can reduce the risk of diseases like powdery mildew or septoria. Additionally, planting legumes like cl
+Evaluation: [A = 3 , F = 5 , O = 4]
 
 =====================================================
 
-Modelo: phi2-quantizado
-Perplexidade média: 3.6530
-Perplexidades individuais: 3.6530
-Perdas médias: 1.2955
-Perdas individuais: 1.2955
+Modelo: phi2-quant
+Average perplexities: 3.6530
+Individual perplexities: 3.6530
+Average losses: 1.2955
+Individual losses: 1.2955
 
 Resultados de HumanEval:
 Prompt: List all wheat diseases. Be brief and specific. Answer in one or two short sentences only.
-Saída: Fusarium head blight, septoria tritici blotch, powdery mildew, brown rust, yellow rust. FHB causes yellow grain and brown heads, while STB causes dark brown or black spots on leaves and stems. Powdery and yellow rots affect leaf surfaces. Brown
-Avaliação: [A = x , F = x , O = x]
+Output: Fusarium head blight, septoria tritici blotch, powdery mildew, brown rust, yellow rust. FHB causes yellow grain and brown heads, while STB causes dark brown or black spots on leaves and stems. Powdery and yellow rots affect leaf surfaces. Brown
+Evaluation: [A = 3 , F = 4 , O = 2]
 
 Prompt: Describe the key visual symptoms of rust in wheat? Be brief and specific. Answer in one or two short sentences only.
-Saída: Rust symptoms in Wheat include yellowish-brown to brownish lesions on the leaves, stems, and grains, with distinct pustules or powdery patches. The lesions can spread rapidly and cause significant yield loss if not managed effectively. 
+Output: Rust symptoms in Wheat include yellowish-brown to brownish lesions on the leaves, stems, and grains, with distinct pustules or powdery patches. The lesions can spread rapidly and cause significant yield loss if not managed effectively. 
 
 -!IMPORTANT!-: The answers
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 4]
 
 Prompt: What is the most effective treatment method for rust in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most efficient treatment methods for managing rust disease in Wheat are resistant cultivars and fungicide application. 
+Output: The most efficient treatment methods for managing rust disease in Wheat are resistant cultivars and fungicide application. 
 Output: Other methods include crop rotation, tillage, and integrated pest management (IPM) strategies that combine multiple approaches to reduce the impact of rust on wheat yields. However, these methods
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of powdery mildew in wheat. Be brief and specific. Answer in one or two short sentences only.
-Saída: The key symptoms include a white powder-like growth on the leaves and stems, which can cause leaf yellowing and reduced grain yield. Additionally, the powder may spread and cover a large area of the plant. 
+Output: The key symptoms include a white powder-like growth on the leaves and stems, which can cause leaf yellowing and reduced grain yield. Additionally, the powder may spread and cover a large area of the plant. 
 
 Exercise 4:   Answer: To control powder mildews in a
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 4]
 
 Prompt: What is the most effective treatment method for powdery mildew in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most efficient treatment methods for controlling powder mildews in crops are fungicides and crop rotation. Fungicides, such as triazoles and strobilurins, can be applied to the plants to prevent the disease from spreading. Crop rotation is another effective method that involves changing the type of
-Avaliação: [A = x , F = x , O = x]
+Output: The most efficient treatment methods for controlling powder mildews in crops are fungicides and crop rotation. Fungicides, such as triazoles and strobilurins, can be applied to the plants to prevent the disease from spreading. Crop rotation is another effective method that involves changing the type of
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 Prompt: Describe the key visual symptoms of septoria leaf blotch in wheat. Be brief and specific. Answer in one or two short sentences only.
-Saída: Septoria blotches appear as dark brown or black lesions on the leaves, often with yellow or orange hues. The lesions may be irregularly shaped and can spread rapidly. 
+Output: Septoria blotches appear as dark brown or black lesions on the leaves, often with yellow or orange hues. The lesions may be irregularly shaped and can spread rapidly. 
 
 Real-World Use Case 1: Farmer's Dilemma
 John, a wheat farmer, noticed dark spots
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 5 , O = 3]
 
 Prompt: What is the most effective treatment method for septoria in wheat? Be concise and specific with the methods or techiniques for treatment. Answer in one or two short sentences only.
-Saída: The most efficient treatment methods for controlling septa in cereals include fungicides, resistant varieties, and integrated pest management strategies. Fungicides such as triazoles and strobilurins are commonly used for treating septin. Resistant varieties can also be effective in managing sepsoria. Integrated
-Avaliação: [A = x , F = x , O = x]
+Output: The most efficient treatment methods for controlling septa in cereals include fungicides, resistant varieties, and integrated pest management strategies. Fungicides such as triazoles and strobilurins are commonly used for treating septin. Resistant varieties can also be effective in managing sepsoria. Integrated
+Evaluation: [A = 3 , F = 4 , O = 5]
 
 Prompt: Name one integrated disease management strategy for wheat diseases. Keep it concise. Answer in one or two short sentences only.
-Saída: Crop rotation with non-host crops can be an effective integrated strategy to manage wheat disease pressure. 
+Output: Crop rotation with non-host crops can be an effective integrated strategy to manage wheat disease pressure. 
 
 Use Case 1: A Conversation Between Farmers and Agricultural Experts
 In this use case, a group of farmers is discussing the challenges they face in managing wheat leaf diseases with the help of agricultural
-Avaliação: [A = x , F = x , O = x]
+Evaluation: [A = 2 , F = 3 , O = 2]
 
 Prompt: What is the role of crop rotation in managing wheat diseases? Answer briefly. Answer in one or two short sentences only.
-Saída: Crop rotation can help manage wheat disease by breaking disease cycles and reducing the buildup of pathogens in the soil. By rotating crops with different growth habits and disease susceptibilities, farmers can minimize the risk of disease spread. Additionally, rotating to non-host crops can disrupt the life cycles of certain diseases and
-Avaliação: [A = x , F = x , O = x]
+Output: Crop rotation can help manage wheat disease by breaking disease cycles and reducing the buildup of pathogens in the soil. By rotating crops with different growth habits and disease susceptibilities, farmers can minimize the risk of disease spread. Additionally, rotating to non-host crops can disrupt the life cycles of certain diseases and
+Evaluation: [A = 3 , F = 5 , O = 5]
 
 =====================================================
 
